@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class App extends React.Component {
   state = {
@@ -7,10 +6,10 @@ class App extends React.Component {
   };
 
   add = () => {
-    console.log("증가");
+    this.setState((current) => ({ count: current.count + 1 })); // state에 의존하지 않고 함수형으로 전환한다.
   };
   minus = () => {
-    console.log("감소");
+    this.setState((current) => ({ count: current.count - 1 }));
   };
   render() {
     return (
