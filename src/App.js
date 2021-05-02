@@ -1,23 +1,49 @@
 import React from "react";
 
-function Food(props) {
-  console.log(props, props.example1, props.example2, props.example3); // props는 객체로써 전달된다.
-  return <h2>나는 {props.example1}입니다.</h2>;
-}
-/*
-단일 props의 사용법
-function Food({fav}) {
-  return <h2>나는 {fav}입니다.</h2>;
-}
-
-<Food fav="김치" />
-*/
-
-function App() {
+function Food({ name, pic }) {
   return (
     <div>
-      <h1>Hello!!!</h1>
-      <Food example1="감자" example2={true} example3={[1, 2, 3, 4, "hello"]} />
+      <h2>나의 최애 음식은 {name}입니다.</h2>
+      <img src={pic} alt="" />
+    </div>
+  );
+}
+
+const foodILike = [
+  {
+    name: "김치",
+    image:
+      "http://aeriskitchen.com/wp-content/uploads/2008/09/kimchi_bokkeumbap_02-.jpg",
+  },
+  {
+    name: "삼겹살",
+    image:
+      "https://3.bp.blogspot.com/-hKwIBxIVcQw/WfsewX3fhJI/AAAAAAAAALk/yHxnxFXcfx4ZKSfHS_RQNKjw3bAC03AnACLcBGAs/s400/DSC07624.jpg",
+  },
+  {
+    name: "비빔밥",
+    image:
+      "http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/recipes/ck/12/03/bibimbop-ck-x.jpg?itok=RoXlp6Xb",
+  },
+  {
+    name: "돈까스",
+    image:
+      "https://s3-media3.fl.yelpcdn.com/bphoto/7F9eTTQ_yxaWIRytAu5feA/ls.jpg",
+  },
+  {
+    name: "김밥",
+    image:
+      "http://cdn2.koreanbapsang.com/wp-content/uploads/2012/05/DSC_1238r-e1454170512295.jpg",
+  },
+];
+
+function App() {
+  // 여러 객체 배열을 전달하기 위해선 {array.map()}을 통해 전달한다.
+  return (
+    <div>
+      {foodILike.map((dish) => (
+        <Food name={dish.name} pic={dish.image} />
+      ))}
     </div>
   );
 }
