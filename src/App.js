@@ -4,33 +4,38 @@ function Food({ name, pic }) {
   return (
     <div>
       <h2>나의 최애 음식은 {name}입니다.</h2>
-      <img src={pic} alt="" />
+      <img src={pic} alt={name} />
     </div>
   );
 }
 
 const foodILike = [
   {
+    id: 1,
     name: "김치",
     image:
       "http://aeriskitchen.com/wp-content/uploads/2008/09/kimchi_bokkeumbap_02-.jpg",
   },
   {
+    id: 2,
     name: "삼겹살",
     image:
       "https://3.bp.blogspot.com/-hKwIBxIVcQw/WfsewX3fhJI/AAAAAAAAALk/yHxnxFXcfx4ZKSfHS_RQNKjw3bAC03AnACLcBGAs/s400/DSC07624.jpg",
   },
   {
+    id: 3,
     name: "비빔밥",
     image:
       "http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/recipes/ck/12/03/bibimbop-ck-x.jpg?itok=RoXlp6Xb",
   },
   {
+    id: 4,
     name: "돈까스",
     image:
       "https://s3-media3.fl.yelpcdn.com/bphoto/7F9eTTQ_yxaWIRytAu5feA/ls.jpg",
   },
   {
+    id: 5,
     name: "김밥",
     image:
       "http://cdn2.koreanbapsang.com/wp-content/uploads/2012/05/DSC_1238r-e1454170512295.jpg",
@@ -38,11 +43,10 @@ const foodILike = [
 ];
 
 function App() {
-  // 여러 객체 배열을 전달하기 위해선 {array.map()}을 통해 전달한다.
   return (
     <div>
       {foodILike.map((dish) => (
-        <Food name={dish.name} pic={dish.image} />
+        <Food key={dish.id} name={dish.name} pic={dish.image} />
       ))}
     </div>
   );
