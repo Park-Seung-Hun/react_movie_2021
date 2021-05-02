@@ -6,7 +6,7 @@ class App extends React.Component {
   };
 
   add = () => {
-    this.setState((current) => ({ count: current.count + 1 })); // state에 의존하지 않고 함수형으로 전환한다.
+    this.setState((current) => ({ count: current.count + 1 }));
   };
   minus = () => {
     this.setState((current) => ({ count: current.count - 1 }));
