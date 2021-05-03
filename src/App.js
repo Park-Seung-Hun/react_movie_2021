@@ -19,7 +19,9 @@ class App extends React.Component {
     } = await axios.get(
       "https://yts-proxy.nomadcoders1.now.sh/list_movies.json"
     );
+
     this.setState({ movies, isLoading: false });
+    console.log(movies, movies[0].genres);
   };
 
   componentDidMount() {
@@ -29,23 +31,33 @@ class App extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <section class="container">
+      <section className="container">
         {isLoading ? (
-          <div class="loader">
-            <span class="loader_text">준비 중...😁</span>
+          <div className="loader">
+            <span className="loader_text">준비 중...😁</span>
           </div>
         ) : (
-          <div class="movies">
-            {movies.map((movie) => (
-              <Movie
-                key={movie.id}
-                id={movie.id}
-                year={movie.year}
-                title={movie.title}
-                summary={movie.summary}
-                poster={movie.medium_cover_image}
-              />
-            ))}
+          <div className="movies">
+            {movies.map(
+              (movie) => (
+                (movie.genres =
+                  typeof movie.genres == "undefined"
+                    ? ["undefined"]
+                    : movie.genres),
+                console.log(movie.genres),
+                (
+                  <Movie
+                    key={movie.id}
+                    id={movie.id}
+                    year={movie.year}
+                    title={movie.title}
+                    summary={movie.summary}
+                    poster={movie.medium_cover_image}
+                    genres={movie.genres}
+                  />
+                )
+              )
+            )}
           </div>
         )}
       </section>
