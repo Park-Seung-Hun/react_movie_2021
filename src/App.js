@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Movie from "./Movie";
 
 class App extends React.Component {
   state = {
@@ -10,16 +11,38 @@ class App extends React.Component {
   getMovies = async () => {
     // Axios에서 온  Data를 잡는 과정
     // Axios는 느린 과정이기에 비동기처리
-    const movies = await axios.get(
+    const {
+      data: {
+        data: { movies },
+      },
+    } = await axios.get(
       "https://yts-proxy.nomadcoders1.now.sh/list_movies.json"
     );
+    this.setState({ movies, isLoading: false });
   };
+
   componentDidMount() {
     this.getMovies(); // 비동기 처리를 위해 함수 생성.
   }
+
   render() {
-    const { isLoading } = this.state;
-    return <div>{isLoading ? "로딩중...😪" : "준비 완료!😁"}</div>;
+    const { isLoading, movies } = this.state;
+    return (
+      <div>
+        {isLoading
+          ? "준비 중...😁"
+          : movies.map((movie) => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+              />
+            ))}
+      </div>
+    );
   }
 }
 
