@@ -2,7 +2,7 @@
 
 - React JS를 이용해 영화 소개 웹사이트 제작
 
-[결과물 보러가기](https://cryptic-sea-36033.herokuapp.com/)
+[결과물 보러가기](https://park-seung-hun.github.io/react_movie_2021/)
 
 ### 📒 Pages:
 
