@@ -14,8 +14,7 @@
 
 #### Front-End
 
-<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> 
-<img src="https://img.shields.io/badge/ReactRouter-CA4245?style=flat-square&logo=React-Router&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img src="https://img.shields.io/badge/ReactRouter-CA4245?style=flat-square&logo=React-Router&logoColor=white"/>
 
 ### 📕 주요 기능
 
